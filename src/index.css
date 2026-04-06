@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0a0f0a;
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: inherit;
+}
+
+.crt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+  z-index: 11;
+  border-radius: inherit;
+}
+
+.snake-head {
+  box-shadow: 0 0 8px #39ff14, 0 0 16px #39ff1488;
+}
+.snake-body {
+  box-shadow: 0 0 4px #39ff1466;
+}
+.food-cell {
+  box-shadow: 0 0 8px #ffb700, 0 0 16px #ffb70066;
+  animation: foodPulse 0.8s ease-in-out infinite;
+}
+@keyframes foodPulse {
+  0%, 100% { box-shadow: 0 0 6px #ffb700, 0 0 12px #ffb70066; }
+  50%       { box-shadow: 0 0 12px #ffb700, 0 0 24px #ffb700aa; }
+}
